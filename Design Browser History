@@ -1,0 +1,28 @@
+class Browser
+{  
+
+    public:
+    vector<string> history;
+    int counter=0;
+    Browser(string &homepage)
+    {
+        history.push_back(homepage);
+        counter=0;
+    }
+    void visit(string &url)
+    {
+        history.erase(history.begin() + counter + 1, history.end());
+        history.push_back(url);
+        counter++;
+    }
+    string back(int steps)
+    {
+        counter=max(0,counter-steps);
+        return history[counter];   
+    }
+    string forward(int steps)
+    {
+        counter=min(counter+steps,(int)history.size()-1);
+        return history[counter];
+    }
+};
