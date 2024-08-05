@@ -15,11 +15,7 @@ public:
             }
                      }
                      
-        if(st.empty()){
-            return true;
-        }else{
-            return false;
-        } 
+        return st.empty(); 
         
     }
 };
